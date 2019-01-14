@@ -8,7 +8,7 @@
     <title>Grocery List</title>
     <link href="grocery.css" rel="stylesheet">
 </head>
- 
+
 <body>
     <h1> Grocery Items </h1>
     <div id="container">
@@ -16,48 +16,75 @@
         <div class="box1">
             <div class="item">
                 <h3>Item</h3>
-                <input type="text" id="addTextInput">
+                <input type="text" id="item-name">
                 <br>
             </div>
             <div class="item">
                 <h3>Units</h3>
-                <input type="number" id="addTextInput">
+                <input type="number" id="item-unit">
                 <br>
             </div>
             <div class="item">
                 <h3>Cost Per Unit</h3>
-                <input type="number" id="addTextInput">
+                <input type="number" id="item-cost">
 
                 <button onclick="handlers.addItems()">Add</button>
             </div>
         </div>
-        <div id="table">
-            <div id="tableheader">
-                <h3>Item</h3>
-                <br>
-            </div>
-            <div id="tableheader">
-                <h3> Units</h3>
-                <br>
-            </div>
-            <div id="tableheader">
-                <h3> Cost</h3>
-                <br>
-            </div>
-            <div id="tableheader" >
-                <h3 > Total Cost</h3>
-                <br>
-            </div>
 
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope='col'>Units</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Don&#8217;t Make Me Think by Steve Krug</td>
+                    <td>In Stock</td>
+                    <td>1</td>
+                    <td>$30.02</td>
+                </tr>
+                <tr>
+                    <td>A Project Guide to UX Design by Russ Unger &#38; Carolyn Chandler</td>
+                    <td>In Stock</td>
+                    <td>2</td>
+                    <td>$52.94 ($26.47 &#215; 2)</td>
+                </tr>
+                <tr>
+                    <td>Introducing HTML5 by Bruce Lawson &#38; Remy Sharp</td>
+                    <td>Out of Stock</td>
+                    <td>1</td>
+                    <td>$22.23</td>
+                </tr>
+                <tr>
+                    <td>Bulletproof Web Design by Dan Cederholm</td>
+                    <td>In Stock</td>
+                    <td>1</td>
+                    <td>$30.17</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Subtotal</td>
+                    <td>$135.36</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Tax</td>
+                    <td>$13.54</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td>$148.90</td>
+                </tr>
+            </tfoot>
+        </table>
+        <h2>Thank You! </h2>
 
-        </div>
-
-
-
-        <div>
-            <h2>Total Amount</h2>
-
-        </div>
+    </div>
 
     </div>
     <script src="grocery.js" type="text/javascript"></script>
