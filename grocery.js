@@ -14,9 +14,11 @@ var items = {
             }
         }
     },
-    addItems: function (itemDetail) {
+    addItems: function (itemName, itemUnit,itemCost) {
         this.items.push({
-            itemDetail: itemDetail,
+            name: itemName,
+            unit: itemUnit,
+            cost: itemCost
         });
         this.displayItems();
     },
@@ -24,9 +26,13 @@ var items = {
 
 var handlers = {
     addItems: function () {
-        var addItemInput = document.getElementById('addItemInput');
-        items.addItems(addItemInput.value);
-        addItemInput.value = '';
-        view.displayItems();
+        var name = document.getElementById('item-name');
+        var unit = document.getElementById('item-unit');
+        var cost = document.getElementById('item-cost');
+        items.addItems(itemName.value, itemUnit.valueAsNumber, itemCost.valueAsNumber);
+        itemName.value = '';
+        itemUnit.value ='';
+        itemCost.value ='';
+        
     }
 };
