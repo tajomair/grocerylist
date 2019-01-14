@@ -53,15 +53,15 @@ h2{
     text-rendering: auto;
     display: inline-block;
     }
-#table{
-    display: table;
-}
-#tableheader{
-    width: 10%;
-    display: table-cell;
-padding: 15px;
-text-align: justify;
-border-bottom: 1px solid black;
-background-color: rgb(250, 250, 250);
-}
 
+table {
+    border-collapse: collapse;
+  }
+th,
+  td {
+    border: 1px solid #c6c7cc;
+    padding: 10px 15px;
+  }
+th {
+    font-weight: bold;
+  }
