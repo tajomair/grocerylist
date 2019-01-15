@@ -1,19 +1,6 @@
 var items = {
     items: [],
-    // displayItems: function () {
-    //     if (this.items.length === 0) {
-    //         console.log('Please add Items');
-    //     } else {
-    //         console.log('Items');
-    //         for (var i = 0; i < this.items.length; i++) {
-    //             if (this.items[i].completed === true) {
-    //                 console.log('(x)', this.items[i].itemDetail);
-    //             } else {
-    //                 console.log('()', this.items[i].itemDetail);
-    //             }
-    //         }
-    //     }
-    // },
+
     addItems: function (itemName, itemUnit, itemCost, total) {
         this.items.push({
             name: itemName,
@@ -24,14 +11,20 @@ var items = {
         // this.items();
     },
     totalBill: function () {
-        total.forEach(element => {
-
-        });
+        var t = 0;
+        this.items.forEach(function (item) {
+            t = t + item.total;
+        }
+        );
+        console.log(t);
+        return t;
     }
 };
 
 var handlers = {
+    
     addItems: function () {
+        var self = this;
         var name = document.getElementById('item-name');
         var unit = document.getElementById('item-unit');
         var cost = document.getElementById('item-cost');
@@ -46,17 +39,21 @@ var handlers = {
         cell2.innerHTML = unit.valueAsNumber;
         cell3.innerHTML = cost.valueAsNumber;
         cell4.innerHTML = unit.valueAsNumber * cost.valueAsNumber;
-
-
-
         var but = document.createElement('button');
         but.innerHTML = 'x';
+        but.onclick = function () {
+            self.toDelete(this);
+        };
         row.cells[4].appendChild(but);
+        //but = document.getElementById('mainTable').deleteRow(4);
         items.addItems(name.value, unit.valueAsNumber, cost.valueAsNumber, unit.valueAsNumber * cost.valueAsNumber);
         name.value = '';
         unit.value = '';
         cost.value = '';
-
+        document.getElementById('totalAmount').innerHTML = items.totalBill();
+    },
+    toDelete: function (rowId) {
+        var i = rowId.parentNode.parentNode.rowindex;
+        document.getElementById("mainTable").deleteRow(i);
     }
-
 };
