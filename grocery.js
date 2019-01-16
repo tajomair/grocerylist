@@ -22,7 +22,7 @@ var items = {
 };
 
 var handlers = {
-    
+
     addItems: function () {
         var self = this;
         var name = document.getElementById('item-name');
@@ -30,6 +30,7 @@ var handlers = {
         var cost = document.getElementById('item-cost');
         var table = document.getElementById("mainTable");
         var row = table.insertRow(1);
+        
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
@@ -41,7 +42,7 @@ var handlers = {
         cell4.innerHTML = unit.valueAsNumber * cost.valueAsNumber;
         var but = document.createElement('button');
         but.innerHTML = 'x';
-        but.onclick = function () {
+       but.onclick = function () {
             self.toDelete(this);
         };
         row.cells[4].appendChild(but);
@@ -53,7 +54,9 @@ var handlers = {
         document.getElementById('totalAmount').innerHTML = items.totalBill();
     },
     toDelete: function (rowId) {
-        var i = rowId.parentNode.parentNode.rowindex;
+        console.log(rowId,rowId.rowIndex);
+        var i = rowId.parentNode.parentNode.rowIndex;
+        console.log(i);
         document.getElementById("mainTable").deleteRow(i);
     }
 };
